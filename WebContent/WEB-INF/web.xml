@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>educlue</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+		<servlet-name>TLoginServlet</servlet-name>
+		<servlet-class>com.teacher.TLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TLoginServlet</servlet-name>
+		<url-pattern>/Tlogin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+    	<servlet-name>TeacherInsert</servlet-name>   
+    	<servlet-class>com.teacher.TeacherInsert</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>TeacherInsert</servlet-name>   
+    	<url-pattern>/Tinsert</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+		<servlet-name>UpdateTeacherServlet</servlet-name>
+		<servlet-class>com.teacher.UpdateTeacherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateTeacherServlet</servlet-name>
+		<url-pattern>/Tupdate</url-pattern>
+	</servlet-mapping>
+	
+	
+		<servlet>
+		<servlet-name>DeleteTeacherServlet</servlet-name>
+		<servlet-class>com.teacher.DeleteTeacherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteTeacherServlet</servlet-name>
+		<url-pattern>/Tdelete</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>TeacherSearchServlet</servlet-name>
+		<servlet-class>com.teacher.TeacherSearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeacherSearchServlet</servlet-name>
+		<url-pattern>/Tsearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+  	<servlet-name>materialInsert</servlet-name>
+  	<servlet-class>com.material.MaterialInsertServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialInsert</servlet-name>
+  		<url-pattern>/materialInsert</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>materialSearch</servlet-name>
+  	<servlet-class>com.material.MaterialSearchServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialSearch</servlet-name>
+  		<url-pattern>/materialSearch</url-pattern>
+  
+  </servlet-mapping>
+  
+       <servlet>
+  	<servlet-name>materialDelete</servlet-name>
+  	<servlet-class>com.material.MaterialDeleteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialDelete</servlet-name>
+  		<url-pattern>/materialDelete</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>materialViewAll</servlet-name>
+  	<servlet-class>com.material.MaterialViewAllServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialViewAll</servlet-name>
+  		<url-pattern>/materialViewAll</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>materialUpdateHelper</servlet-name>
+  	<servlet-class>com.material.MaterialUpdateHelperServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialUpdateHelper</servlet-name>
+  		<url-pattern>/materialUpdateHelper</url-pattern>
+  
+  </servlet-mapping>
+  
+      <servlet>
+  	<servlet-name>materialUpdate</servlet-name>
+  	<servlet-class>com.material.MaterialUpdateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialUpdate</servlet-name>
+  		<url-pattern>/materialUpdate</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>materialViewLatest</servlet-name>
+  	<servlet-class>com.material.MaterialViewLatestServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialViewLatest</servlet-name>
+  		<url-pattern>/materialViewLatest</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>materialSearchHome</servlet-name>
+  	<servlet-class>com.material.MaterialSearchHomeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialSearchHome</servlet-name>
+  		<url-pattern>/materialSearchHome</url-pattern>
+  
+  </servlet-mapping>
+  
+       <servlet>
+  	<servlet-name>materialViewLatestStudent</servlet-name>
+  	<servlet-class>com.material.MaterialViewLatestStudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialViewLatestStudent</servlet-name>
+  		<url-pattern>/materialViewLatestStudent</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>materialSearchHomeStudent</servlet-name>
+  	<servlet-class>com.material.MaterialSearchHomeStudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialSearchHomeStudent</servlet-name>
+  		<url-pattern>/materialSearchHomeStudent</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>materialSearchStudent</servlet-name>
+  	<servlet-class>com.material.MaterialSearchStudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialSearchStudent</servlet-name>
+  		<url-pattern>/materialSearchStudent</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>materialViewAllStudent</servlet-name>
+  	<servlet-class>com.material.MaterialViewAllStudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>materialViewAllStudent</servlet-name>
+  		<url-pattern>/materialViewAllStudent</url-pattern>
+  
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>paymentInsert</servlet-name>
+  	<servlet-class>com.payment.PaymentInsertServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentInsert</servlet-name>
+  		<url-pattern>/paymentInsert</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>paymentSearch</servlet-name>
+  	<servlet-class>com.payment.PaymentSearchServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentSearch</servlet-name>
+  		<url-pattern>/paymentSearch</url-pattern>
+  
+  </servlet-mapping>
+  
+       <servlet>
+  	<servlet-name>paymentDelete</servlet-name>
+  	<servlet-class>com.payment.PaymentDeleteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentDelete</servlet-name>
+  		<url-pattern>/paymentDelete</url-pattern>
+  
+  </servlet-mapping>
+  
+  
+     <servlet>
+  	<servlet-name>paymentUpdate</servlet-name>
+  	<servlet-class>com.payment.PaymentUpdateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentUpdate</servlet-name>
+  		<url-pattern>/paymentUpdate</url-pattern>
+  
+  </servlet-mapping>
+  
+  <servlet>
+         <servlet-name>login</servlet-name>
+       	<servlet-class>com.student.LoginServlet</servlet-class>
+         </servlet>
+         <servlet-mapping>
+         	<servlet-name>login</servlet-name>
+         	<url-pattern>/log</url-pattern>
+         </servlet-mapping>
+         
+         <servlet>
+         	<servlet-name>studentInsert</servlet-name>
+         	<servlet-class>com.student.StudentInsert</servlet-class>
+         </servlet>
+         <servlet-mapping>
+         	<servlet-name>studentInsert</servlet-name>
+         	<url-pattern>/insert</url-pattern>
+         </servlet-mapping>
+         
+         <servlet>
+         	<servlet-name>updateStudent</servlet-name>
+         	<servlet-class>com.student.UpdateCustomerServlet</servlet-class>
+         </servlet>
+         <servlet-mapping>
+         	<servlet-name>updateStudent</servlet-name>
+         	<url-pattern>/update</url-pattern>
+         </servlet-mapping>
+         
+         <servlet>
+         	<servlet-name>deleteStudent</servlet-name>
+         	<servlet-class>com.student.DeleteStudent</servlet-class>
+         </servlet>
+         <servlet-mapping>
+         	<servlet-name>deleteStudent</servlet-name>
+         	<url-pattern>/delete</url-pattern>
+         </servlet-mapping>
+         
+         <servlet>
+			<servlet-name>StudentSearchServlet</servlet-name>
+			<servlet-class>com.student.StudentSearchServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>StudentSearchServlet</servlet-name>
+			<url-pattern>/search</url-pattern>
+		</servlet-mapping>
+	
+</web-app>
