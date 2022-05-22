@@ -1,13 +1,15 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!doctype html>
+<!DOCTYPE html>
+
 
 <html lang="en-US">
 	<head>
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>EDUclue</title>
+		<title>EDUclue - Teacher Registration Form</title>
 		<meta name="description" content="Unika - Responsive One Page HTML5 Template">
 		<meta name="keywords" content="HTML5, Bootsrtrap, One Page, Responsive, Template, Portfolio" />
 		<meta name="author" content="imransdesign.com">
@@ -32,7 +34,7 @@
 		<link rel="stylesheet" href="css/mobile.css">
 
 		<!-- Skin CSS -->
-		<!-- <link rel="stylesheet" href="css/skin/cool-gray.css">-->
+		<!--<link rel="stylesheet" href="css/skin/cool-gray.css"> -->
         <link rel="stylesheet" href="css/skin/ice-blue.css">
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
@@ -45,6 +47,8 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		
+	
 
 	</head>
 
@@ -75,9 +79,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
-        
+                          
+                            <li><a class="page-scroll" href="dashboardT.html">Teacher Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -87,23 +91,25 @@
             </header>
             <!-- ========= END HEADER =========-->
             
-
-            <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/pay.png);">
-            <div class="cover"></div>
             
+            
+            <!-- Begin payment section -->
+            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/slider-bg.jpg);">
+            <div class="cover"></div>
+            <br><br><br>
                  <!-- Begin page header-->
                 <div class="page-header-wrapper">
                     <div class="container">
                         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                            <br><br>
-                            <h2>PAYMENT</h2>
+                            <h2>Create Teacher User Profile</h2>
                             <div class="devider"></div>
+                            <p class="subtitle">Fill all the fields and submit to add a teacher</p>
                         </div>
                     </div>
                 </div>
                 <!-- End page header-->
                 
+            
                 <div class="contact wow bounceInRight" data-wow-delay="0.4s">
                     <div class="container">
                         <div class="row">
@@ -113,50 +119,67 @@
                             <div class="col-sm-6">
                                 <div class="contact-form">
                                     
-                                    <form action ="paymentInsert"  method ="post"role="form"   >
+                                    <form role="form" action="Tinsert" method="post">
+
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="name" placeholder="Name" required>
+                                            Full Name:  <br><br>
+                                            <input type="text" class="form-control input-lg" name="name" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="age" placeholder="Age" required>
+                                            NIC Number:  <br><br>
+                                            <input type="text" class="form-control input-lg" name="nic" pattern="[0-9]{9}+[v,V]" title="Example- 871234859V" required> 
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="stu" placeholder="Student number" required>
+                                        	Gender: <br><br>
+                                            <input type="text" class="form-control input-lg" name="gender" required>
+        
+                                        </div><br>
+                                        <div class="form-group">
+                                        	Subject: <br><br>
+                                            <select name="subject" id="subject" class="form-control input-lg" required>
+        										<option value="Science">Science</option>
+       											<option value="Mathematics">Mathematics</option>
+       									 		<option value="English">English</option>
+        										<option value="History">History</option>
+        										<option value="Sinhala">Sinhala</option>
+        										<option value="Commerce">Commerce</option>
+        										<option value="ICT">ICT</option>
+        										<option value="Geography">Geography</option>
+        									</select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="grade" placeholder="grade" required>
-                                        </div>
-                                        <h2>subject</h2>
-                                        <div class="form-group">
-										<input type="radio" id="it" name="sub" value="it">
-  										<label for="html">IT</label><br>
- 										<input type="radio" id="ENGLISH" name="sub" value="ENGLISH">
-  										<label for="css">English</label><br>
-  										<input type="radio" id="SINHALA" name="sub" value="SINHALA"> 
-										<label for="css">Sinhala</label><br>
-										<input type="radio" id="MATH" name="sub" value="MATH"> 
-										<label for="css">Maths</label><br>
-                                       </div>
-                                       
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="mobile" placeholder="MOBILE number" pattern="[0-9]{10}" required>
+                                        	Address:  <br><br>
+                                               <textarea class="form-control input-lg" name="address" rows="5" cols="50" required> </textarea>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control input-lg" name ="email" placeholder="email" required>
+                                        	Email Address: <br><br>
+                                            <input type="email"  class="form-control input-lg" name="email" placeholder="abc@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" title="Example- abc@gmail.com"required>
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control input-lg" rows="5" name ="masseg" placeholder="Message" required></textarea>
+                                        	Contact Number:  <br><br>
+                                           <input class="form-control input-lg" type="text" name="phone"  pattern="[0-9]{10}" title="Must contain 10 numbers,Example-0761234567" required>
+                                        </div>
+                                        <div class="form-group">
+                                        	Experience in years:  <br><br>
+                                            <input type="text"  class="form-control input-lg" name="experience" pattern="[0-9]{1,2}" title="Example- 20" required>
                                         </div>
                                          <div class="form-group">
-                                             
-                                             <input type="file" id="img" name="img"  class="form-control input-lg" placeholder="image" required>
-                                        
-
+                                        	Education Qualifications:  <br><br>
+                                            <textarea  class="form-control input-lg" name="eduqualifications" rows="5" cols="50"  required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                        	User Name:  <br><br>
+                                             <input type="text"  class="form-control input-lg" name="uid" required>
+                                        </div>
+                                         <div class="form-group">
+                                       		 Password:  <br><br>
+                                            <input type="password" class="form-control input-lg" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at 					least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> <br/><br/>
                                         </div>
 
-                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">SUBMIT</button>
+                                        <button type="submit" name="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">Add Teacher</button>
+                                        
                                     </form>
-                                   
                                 </div>  
                             </div>
                                                                                 
@@ -167,10 +190,14 @@
             </section>
             <!-- End payment section -->
     
-      
 
-                
-            <!-- Begin footer -->
+
+
+
+
+
+
+<!-- Begin footer -->
             <footer class="text-off-white">
             
                 <div class="footer-top">
@@ -208,7 +235,6 @@
 		<!-- Theme JS -->
 		<script src="js/theme.js"></script>
 
-    </body> 
-        
-            
+
+</body>
 </html>

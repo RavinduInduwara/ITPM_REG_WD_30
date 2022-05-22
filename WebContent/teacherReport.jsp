@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
+<head>
 
- <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>EDUclue</title>
-        
-        <meta name="description" content="Unika - Responsive One Page HTML5 Template">
+<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>EDUclue</title>
+		<meta name="description" content="Unika - Responsive One Page HTML5 Template">
 		<meta name="keywords" content="HTML5, Bootsrtrap, One Page, Responsive, Template, Portfolio" />
 		<meta name="author" content="imransdesign.com">
 
@@ -44,11 +44,40 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		
-		
-			<style>
+
+
+
+	
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	
+<style type="text/css">
+body {
+    background-image:url(emp.jpg);
+}
+.myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.header{
+   background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+</style>
+
+		<style>
 		.button4 {
-		  background-color: Gray ;
+   background-color: Gray ;
   border: none;
   color: white;
   padding: 10px 32px;
@@ -58,11 +87,10 @@
   font-size: 16px;
 		}
 		</style>
-        
-    </head>
-    
-    
-   <body data-spy="scroll" data-target="#main-navbar">
+
+</head>
+
+<body data-spy="scroll" data-target="#main-navbar">
         <div class="page-loader"></div>  <!-- Display loading image while page loads -->
     	<div class="body">
         
@@ -89,8 +117,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                         <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
+                            <li><a class="page-scroll" href="dashboardT.html">Teacher Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -99,64 +127,157 @@
 
             </header>
             <!-- ========= END HEADER =========-->
-            
-         
-         <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/slider-bg.jpg);">
-            <div class="cover"></div>
-            <br><br><br>
-                 <!-- Begin page header-->
-                <div class="page-header-wrapper">
-                    <div class="container">
-                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                            <h2>Search Payment Details</h2>
-                            <div class="devider"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End page header-->
-                
-                <div class="contact wow bounceInRight" data-wow-delay="0.4s">
-                    <div class="container">
-                        <div class="row">
-                        
-                            
-                        
-                            <div class="col-sm-6">
-                                <div class="contact-form">
-        
 
-           
-           <form role="form" action ="paymentSearch" method = "post"  style=" padding:8px 80px; ">
-	<div>
-<h3></h3><!--  <input type ="text"  style=" padding:8px 60px; font-size:15px; font-color:#000000"><br><br><br><br><br>-->
- 									  <div class="form-group">
-                                        <input type="text"   class="form-control input-lg" name="pid" placeholder="Enter a Payment ID" required>
-                                        
-                                        
-                                        </div>
-                                         </div><br><br>
+	<header>
+		<br><br><br><br>
+			<div class="header">
+    				<h1>NextGen Higher Education Institute</h1>
+			</div>
 
+		
+	</header>
+	<br>
+	<div class="row">
 
-<input type="submit" name="submit" value="SEARCH" class="button4" data-wow-delay="1s">
+		<div class="container">
+			<h2 class="text-center">TEACHER DETAILS</h2><br><br>
+		
+			<div class="container text-left">
+			
+			<a href="teacherinsert.jsp" class="button4">ADD New Teacher</a>
+			<a href="teacherSearch.jsp" class="button4">Search Teachers</a>
+
+					<br><br>
+				
+
+			</div>
+			
+			
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+<%
+//String id = request.getParameter("userId");
+String tid = request.getParameter("tid");
+String driverName = "org.postgresql.Driver";
+String connectionUrl = "jdbc:postgresql://localhost:5432/student_management";
+String userId = "postgres";
+String password = "123456";
+
+try {
+Class.forName(driverName);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>
 <br>
-<br>
-<a href="paymentInsert.jsp"><button type="button" class="button4" data-wow-delay="0.8s">Make New Payment</button></a>
-</form>
+<table class="table table-bordered table table-hover" id="tblCustomers">
+<tr>
 
+</tr>
+<tr>
+                        <th>Teacher ID</th>
+						<th>Full Name</th>
+						<th>NIC No</th>
+						<th>Gender</th>
+						<th>Subject</th>
+						<th>Address</th>
+						<th>Email Address</th>
+						<th>Contact Number</th>
+						<th>Experience</th>
+						<th>Education Qualifications</th>
+						
+</tr>
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM teacher";
 
-            </div>  
-                            </div>
-                                                                                
-                        </div> <!-- /.row -->
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+<tr bgcolor="#DEB887">
+<td><%=resultSet.getString("tid") %></td>
+<td><%=resultSet.getString("name") %></td>
+<td><%=resultSet.getString("nic") %></td>
+<td><%=resultSet.getString("gender") %></td>
+<td><%=resultSet.getString("subject") %></td>
+<td><%=resultSet.getString("address") %></td>
+<td><%=resultSet.getString("email") %></td>
+<td><%=resultSet.getString("phone") %></td>
+<td><%=resultSet.getString("experience") %></td>
+<td><%=resultSet.getString("eduqualifications") %></td>
+</tr>
 
-                    </div> <!-- /.container -->
-                </div>
-            </section>
-            <!-- End payment section -->
+<% 
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</table>
+<input type="button" id="btnExport" value="Download Report"  class="button4" />
     
-                
-            <!-- Begin footer -->
+    
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
+    <script type="text/javascript">
+        $("body").on("click", "#btnExport", function () {
+            html2canvas($('#tblCustomers')[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Teacher Details Report.pdf");
+                }
+            });
+        });
+    </script>
+			
+			
+			
+
+		
+
+		</div>
+	</div>
+	
+	<br>
+	
+	<!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+          
+        </footer>
+<br>
+<!-- <input type="button" id="btnExport" class="btn btn-secondary" value="Export Individual" onclick="Export()" /> -->
+
+ <!--  <input type="button" value="Export Report" class="btn btn-primary" id="btPrint" onclick="createPDF()" /> -->
+ 
+  
+  
+   <!--  <input type="button" id="btnExport" class="btn btn-secondary" value="Export Individual" onclick="Export()" /> -->
+   
+   
+   
+   
+
+
+<!-- Begin footer -->
             <footer class="text-off-white">
             
                 <div class="footer-top">
@@ -193,13 +314,10 @@
 
 		<!-- Theme JS -->
 		<script src="js/theme.js"></script>
-           
-           
-           
-           
-    </body>
 
 
-
-
+</body>
 </html>
+
+
+

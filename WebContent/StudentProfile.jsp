@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!doctype html>
-
-<html lang="en-US">
+    <%@taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 	<head>
 
 		<meta charset="utf-8">
@@ -33,7 +33,7 @@
 
 		<!-- Skin CSS -->
 		<!-- <link rel="stylesheet" href="css/skin/cool-gray.css">-->
-        <link rel="stylesheet" href="css/skin/ice-blue.css">
+         <link rel="stylesheet" href="css/skin/ice-blue.css">
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/night-purple.css"> -->
@@ -75,8 +75,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
+                           <li><a class="page-scroll" href="dashboardS.html">Student Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
         
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -87,9 +87,7 @@
             </header>
             <!-- ========= END HEADER =========-->
             
-
-            <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/pay.png);">
+    <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/slider-bg.jpg);">
             <div class="cover"></div>
             
                  <!-- Begin page header-->
@@ -97,8 +95,9 @@
                     <div class="container">
                         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
                             <br><br>
-                            <h2>PAYMENT</h2>
+                            <h2>STUDENT profile</h2>
                             <div class="devider"></div>
+                            <p class="subtitle"></p>
                         </div>
                     </div>
                 </div>
@@ -111,53 +110,173 @@
                             
                         
                             <div class="col-sm-6">
-                                <div class="contact-form">
-                                    
-                                    <form action ="paymentInsert"  method ="post"role="form"   >
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="name" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="age" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="stu" placeholder="Student number" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="grade" placeholder="grade" required>
-                                        </div>
-                                        <h2>subject</h2>
-                                        <div class="form-group">
-										<input type="radio" id="it" name="sub" value="it">
-  										<label for="html">IT</label><br>
- 										<input type="radio" id="ENGLISH" name="sub" value="ENGLISH">
-  										<label for="css">English</label><br>
-  										<input type="radio" id="SINHALA" name="sub" value="SINHALA"> 
-										<label for="css">Sinhala</label><br>
-										<input type="radio" id="MATH" name="sub" value="MATH"> 
-										<label for="css">Maths</label><br>
-                                       </div>
-                                       
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="mobile" placeholder="MOBILE number" pattern="[0-9]{10}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control input-lg" name ="email" placeholder="email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control input-lg" rows="5" name ="masseg" placeholder="Message" required></textarea>
-                                        </div>
-                                         <div class="form-group">
-                                             
-                                             <input type="file" id="img" name="img"  class="form-control input-lg" placeholder="image" required>
-                                        
+                                <div class="contact-form">          
+            
+    <br><br><br><br>     
+	<table>
+	<c:forEach var = "std" items = "${stdDetails}">
+	
+	<c:set var = "id" value = "${std.id}"/>
+	<c:set var = "name" value = "${std.name}"/>
+	<c:set var = "boy" value = "${std.boy}"/>  
+	<c:set var = "gender" value = "${std.gender}"/>
+	<c:set var = "age" value = "${std.age}"/>
+	<c:set var = "grade" value = "${std.grade}"/>
+	<c:set var = "email" value = "${std.email}"/>
+	<c:set var = "contact" value = "${std.contact}"/>
+	<c:set var = "address" value = "${std.address}"/>
+	<c:set var = "gname" value = "${std.gname}"/>
+	<c:set var = "gtype" value = "${std.gtype}"/>
+	<c:set var = "gemail" value = "${std.gemail}"/>
+	<c:set var = "gcontact" value = "${std.gcontact}"/>
+	<c:set var = "gaddress" value = "${std.gaddress}"/>
+	<c:set var = "occupation" value = "${std.occupation}"/>
+	<c:set var = "username" value = "${std.userName}"/>
+	<c:set var = "password" value = "${std.password}"/>	
+	
+	<tr>
+		<td>Student ID : </td>
+		<td>${std.id}</td>
+	</tr>
+	
+	
+	<tr>
+		<td>Student Name : </td>
+		<td>${std.name}</td>
+	</tr>
+	
+	<tr>
+		<td>Date of Birth : </td>
+		<td>${std.boy}</td>
+	</tr>
+	
+	<tr>
+		<td>gender : </td>
+		<td>${std.gender}</td>
+	</tr>
+	
+	<tr>
+		<td>age : </td>
+		<td>${std.age}</td>
+	</tr>
+	
+	<tr>
+		<td>Grade : </td>
+		<td>${std.grade}</td>
+	</tr>
+	
+	<tr>
+		<td>Email : </td>
+		<td>${std.email}</td>
+	</tr>
+	
+	<tr>
+		<td>Contact : </td>
+		<td>${std.contact}</td>
+	</tr>
+	
+	<tr>
+		<td>Address : </td>
+		<td>${std.address}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Name : </td>
+		<td>${std.gname}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Type : </td>
+		<td>${std.gtype}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Email : </td>
+		<td>${std.gemail}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Address : </td>
+		<td>${std.gaddress}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Contact :</td>
+		<td>${std.gcontact}</td>
+	</tr>
+	
+	<tr>
+		<td>Guardian Occupation : </td>
+		<td>${std.occupation}</td>
+	</tr>
+	
+	<tr>
+		<td>UserName : </td>
+		<td>${std.userName}</td>
+	</tr>
+	
+	<tr>
+		<td>Student Password : </td>
+		<td>${std.password}</td>
+	</tr>
 
-                                        </div>
-
-                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">SUBMIT</button>
-                                    </form>
-                                   
-                                </div>  
+	</c:forEach>
+	</table>
+	
+	<c:url value = "updatestudent.jsp" var= "stdupdate">
+		<c:param name = "id" value = "${id}"/>
+		<c:param name = "name" value = "${name}"/>
+		<c:param name = "boy" value = "${boy}"/>
+		<c:param name = "gender" value = "${gender}"/> 
+		<c:param name = "age" value = "${age}"/>
+		<c:param name = "grade" value = "${grade}"/>
+		<c:param name = "email" value = "${email}"/>
+		<c:param name = "contact" value = "${contact}"/>
+		<c:param name = "address" value = "${address}"/>
+		<c:param name = "gname" value = "${gname}"/>
+		<c:param name = "gtype" value = "${gtype}"/>
+		<c:param name = "gemail" value = "${gemail}"/>
+		<c:param name = "gcontact" value = "${gcontact}"/>
+		<c:param name = "gaddress" value = "${gaddress}"/>
+		<c:param name = "occupation" value = "${occupation}"/>
+		<c:param name = "uname" value = "${userName}"/>
+		<c:param name = "pass" value = "${password}"/>
+	</c:url>
+	<br>
+	<a href = "${stdupdate}">
+	<br>
+	<input type = "button" name = "update" value = "UPDATE"  class="btn wow bounceInRight" data-wow-delay="0.8s"><br>
+	</a>
+	<br>
+	<br>
+	
+	<c:url value = "deletestudent.jsp" var= "stddelete">
+		<c:param name = "id" value = "${id}"/>
+		<c:param name = "name" value = "${name}"/>
+		<c:param name = "boy" value = "${boy}"/>
+		<c:param name = "gender" value = "${gender}"/> 
+		<c:param name = "age" value = "${age}"/>
+		<c:param name = "grade" value = "${grade}"/>
+		<c:param name = "email" value = "${email}"/>
+		<c:param name = "contact" value = "${contact}"/>
+		<c:param name = "address" value = "${address}"/>
+		<c:param name = "gname" value = "${gname}"/>
+		<c:param name = "gtype" value = "${gtype}"/>
+		<c:param name = "gemail" value = "${gemail}"/>
+		<c:param name = "gcontact" value = "${gcontact}"/>
+		<c:param name = "gaddress" value = "${gaddress}"/>
+		<c:param name = "occupation" value = "${occupation}"/>
+		<c:param name = "uname" value = "${userName}"/>
+		<c:param name = "pass" value = "${password}"/>
+	</c:url>
+	
+	<a href = "${stddelete}">
+	<input type = "button" name = "delete" value = "DELETE"  class="btn wow bounceInRight" data-wow-delay="0.8s"><br>
+	</a>
+	<br><br>
+	<a href="dashboard.jsp"><button type="button" class="btn wow bounceInRight" data-wow-delay="0.8s">Student Dashboard</button></a>
+	<br><br><br><br>
+	</div>  
                             </div>
                                                                                 
                         </div> <!-- /.row -->
@@ -165,10 +284,7 @@
                     </div> <!-- /.container -->
                 </div>
             </section>
-            <!-- End payment section -->
-    
-      
-
+            <!-- End payment section
                 
             <!-- Begin footer -->
             <footer class="text-off-white">

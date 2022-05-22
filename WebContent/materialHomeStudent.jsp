@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!doctype html>
+<!DOCTYPE html>
+<%@ page import="java.util.*" %> 
 
 <html lang="en-US">
 	<head>
@@ -32,7 +33,7 @@
 		<link rel="stylesheet" href="css/mobile.css">
 
 		<!-- Skin CSS -->
-		<!-- <link rel="stylesheet" href="css/skin/cool-gray.css">-->
+		<!--<link rel="stylesheet" href="css/skin/cool-gray.css"> -->
         <link rel="stylesheet" href="css/skin/ice-blue.css">
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
@@ -49,8 +50,10 @@
 	</head>
 
     <body data-spy="scroll" data-target="#main-navbar">
+    
         <div class="page-loader"></div>  <!-- Display loading image while page loads -->
     	<div class="body">
+        
         
             <!--========== BEGIN HEADER ==========-->
             <header id="header" class="header-main">
@@ -75,9 +78,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
-        
+                           <li><a class="page-scroll" href="dashboardS.html">Student Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -87,18 +89,30 @@
             </header>
             <!-- ========= END HEADER =========-->
             
-
-            <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/pay.png);">
+            
+            
+                
+        
+                
+            <br><br><br>
+                
+           
+              
+                
+                
+                
+                
+            <!-- Begin contact section -->
+			<section id="contact-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/map-bg.jpg);">
             <div class="cover"></div>
             
                  <!-- Begin page header-->
                 <div class="page-header-wrapper">
                     <div class="container">
                         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                            <br><br>
-                            <h2>PAYMENT</h2>
+                            <h2>e-Library</h2>
                             <div class="devider"></div>
+                            <!--<p class="subtitle">All to contact us</p>-->
                         </div>
                     </div>
                 </div>
@@ -106,68 +120,120 @@
                 
                 <div class="contact wow bounceInRight" data-wow-delay="0.4s">
                     <div class="container">
-                        <div class="row">
-                        
+                    	<div class="row">
+                    	
+                        <!--start form 1-->
+						<div class="col-sm-6">
+                                <div class="contact-form">
+                                	<h4>Latest eLibrary Materials for You</h4>
+                                   <table width="450px" align="center"  style="border: 0 none;">
+
+												<!--<tr class="table-header">
+												<td class="col col-1"><b>Title</b></td>
+												<td class="col col-1"><b>Date</b></td>
+												<td class="col col-1"><b>Grade</b></td>
+												<td class="col col-1"><b>Subject</b></td>
+												<td class="col col-1"><b>Link</b></td>
+												
+												</tr>-->
+												<%
+												int count=0;
+												String color = "#F9EBB3";
+												
+												
+												if(request.getAttribute("allList")!=null)
+												{
+												 	ArrayList al = (ArrayList)request.getAttribute("allList");
+													Iterator itr = al.iterator();
+													
+													
+													while(itr.hasNext())
+													{
+														
+														if((count%2)==0)
+														{
+															
+															color = "rgba(255, 255, 255, 0.06)";
+															
+															
+														}
+														else
+														{
+															 color = "#171717";
+														}
+														count++;
+														ArrayList matList = (ArrayList) itr.next();
+														%>
+												<tr height=30px style="background-color:<%=color%>; text-align:center; border: 0 none;">
+												<!--<td class="col col-1"><%=matList.get(0)%></td>-->
+												<!--<td class="col col-2"><%=matList.get(1)%></td>-->
+												<td><h4><%=matList.get(2)%> for grade <%=matList.get(4)%> <%=matList.get(5)%></h4></td>
+												<tr height=30px style="background-color:<%=color%>; text-align:center; border: 0 none;">
+												<td><a href="https://<%=matList.get(6)%>">View PDF on Google Drive</a></td>
+												</tr>
+												<tr height=30px style="background-color:<%=color%>; text-align:center; border: 0 none;">
+												<td>Added on <%=matList.get(3)%></td>
+												</tr>
+												<tr height = 10px></tr>
+												
+												<script>
+												        function geek() {
+												            var x = confirm("Are you sure to delete this material?");
+												            if (x)
+												              return true;
+												            else
+												              return false;
+												        }
+												    </script>
+														<%
+													
+													}
+												}
+												
+												%>
+												
+												<%
+												if(count==0)
+												{
+													%>
+												<tr>
+												<td colspan=8 align="center" style="background-color:eeffee"><b>No materials available...</b></td>
+												
+												
+												</tr>
+													<%
+												}
+												%>
+												</table>
+                                </div>	
+                            </div>
+							<!--start fo4m 2-->
                             
                         
-                            <div class="col-sm-6">
+                        	<div class="col-sm-6">
                                 <div class="contact-form">
-                                    
-                                    <form action ="paymentInsert"  method ="post"role="form"   >
+                                	<h4>Search for eLibrary Materals</h4>
+                                    <form name="form" action="materialSearchHomeStudent" method="post">
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="name" placeholder="Name" required>
+                                            <input type="text" name="title" class="form-control input-lg" placeholder="Search What You Want..." required>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="age" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="stu" placeholder="Student number" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="grade" placeholder="grade" required>
-                                        </div>
-                                        <h2>subject</h2>
-                                        <div class="form-group">
-										<input type="radio" id="it" name="sub" value="it">
-  										<label for="html">IT</label><br>
- 										<input type="radio" id="ENGLISH" name="sub" value="ENGLISH">
-  										<label for="css">English</label><br>
-  										<input type="radio" id="SINHALA" name="sub" value="SINHALA"> 
-										<label for="css">Sinhala</label><br>
-										<input type="radio" id="MATH" name="sub" value="MATH"> 
-										<label for="css">Maths</label><br>
-                                       </div>
-                                       
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="mobile" placeholder="MOBILE number" pattern="[0-9]{10}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control input-lg" name ="email" placeholder="email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control input-lg" rows="5" name ="masseg" placeholder="Message" required></textarea>
-                                        </div>
-                                         <div class="form-group">
-                                             
-                                             <input type="file" id="img" name="img"  class="form-control input-lg" placeholder="image" required>
-                                        
-
-                                        </div>
-
-                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">SUBMIT</button>
+                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">Search</button>
+                                        <br><br>
                                     </form>
-                                   
-                                </div>  
+                                    <form name="form" action="materialViewAllStudent" method="post">
+                                    <br>
+                                    <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">View All Materials</button>
+                                    </form>
+                                </div>	
                             </div>
                                                                                 
                         </div> <!-- /.row -->
-
                     </div> <!-- /.container -->
                 </div>
             </section>
-            <!-- End payment section -->
-    
-      
+            <!-- End contact section -->
+                
+                
 
                 
             <!-- Begin footer -->

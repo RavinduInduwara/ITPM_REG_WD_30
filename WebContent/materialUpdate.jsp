@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!doctype html>
-
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<!--
+	Template:	 Unika - Responsive One Page HTML5 Template
+	Author:		 imransdesign.com
+	URL:		 http://imransdesign.com/
+    Designed By: https://www.behance.net/poljakova
+	Version:	1.0	
+-->
 <html lang="en-US">
 	<head>
 
@@ -32,7 +39,7 @@
 		<link rel="stylesheet" href="css/mobile.css">
 
 		<!-- Skin CSS -->
-		<!-- <link rel="stylesheet" href="css/skin/cool-gray.css">-->
+		<!--<link rel="stylesheet" href="css/skin/cool-gray.css"> -->
         <link rel="stylesheet" href="css/skin/ice-blue.css">
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
@@ -49,6 +56,16 @@
 	</head>
 
     <body data-spy="scroll" data-target="#main-navbar">
+	
+	<c:forEach var = "material" items="${materialDetails}">
+	
+	<c:set var="materialID" value="${material.materialID}"/>
+	<c:set var="teacherID" value="${material.teacherID}"/>
+	<c:set var="materialTitle" value="${material.materialTitle}"/>
+	<c:set var="materialAddedDate" value="${material.materialAddedDate}"/>
+	<c:set var="materialGrade" value="${material.materialGrade}"/>
+	<c:set var="materialSubject" value="${material.materialSubject}"/>
+	<c:set var="materialLink" value="${material.materialLink}"/>
         <div class="page-loader"></div>  <!-- Display loading image while page loads -->
     	<div class="body">
         
@@ -75,9 +92,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
-        
+                            <li><a class="page-scroll" href="dashboardT.html">Teacher Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -87,18 +103,30 @@
             </header>
             <!-- ========= END HEADER =========-->
             
-
-            <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/pay.png);">
+            
+            
+                
+        
+                
+            <br><br><br>
+                
+           
+              
+                
+                
+                
+                
+            <!-- Begin contact section -->
+			<section id="contact-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/map-bg.jpg);">
             <div class="cover"></div>
             
                  <!-- Begin page header-->
                 <div class="page-header-wrapper">
                     <div class="container">
                         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                            <br><br>
-                            <h2>PAYMENT</h2>
+                            <h2>Update E-Library Material</h2>
                             <div class="devider"></div>
+                            
                         </div>
                     </div>
                 </div>
@@ -106,68 +134,76 @@
                 
                 <div class="contact wow bounceInRight" data-wow-delay="0.4s">
                     <div class="container">
-                        <div class="row">
-                        
+                    	<div class="row">
+                        <!--start form 1-->
+						<div class="col-sm-6">
+                                <div class="contact-form">
+                                	<h4>Update e-Library Material Details</h4>
+                                    <form action = "materialUpdate" method = "post">
+								
+                                        <div class="form-group">
+                                          <h3>Material ID</h3> <input type="text" name = "materialID" value = "${materialID}" class="form-control input-lg" readonly>
+                                        </div>
+										
+										<div class="form-group">
+                                          <h3>Your ID</h3>  <input type="text" name = "teacherID" value = "${teacherID}" class="form-control input-lg" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <h3>Title</h3><input type="text" name = "materialTitle" value = "${materialTitle}" class="form-control input-lg" required>
+                                        </div>
+										<div class="form-group">
+                                            <h3>Added Date</h3><input type="text" name = "materialAddedDate" value = "${materialAddedDate}" class="form-control input-lg" readonly>
+                                        </div>
+										<div class="form-group">
+                                           <h3>Grade</h3> <select name = "materialGrade" class="form-control input-lg">
+													<option value = "6" selected>Grade 6</option>
+													<option value = "7">Grade 7</option>
+													<option value = "8">Grade 8</option>
+													<option value = "9">Grade 9</option>
+													<option value = "10">Grade 10 (O/L)</option>
+													<option value = "11">Grade 11 (O/L)</option>
+													<option value = "12">Grade 12 (A/L)</option>
+													<option value = "13">Grade 13 (A/L)</option>
+												 </select>
+                                        </div>
+										<div class="form-group">
+                                          <h3>Subject</h3>  <select name = "materialSubject" class="form-control input-lg">
+													 <option value = "Science" selected>Science</option>
+													<option value = "English">English</option>
+													<option value = "English Lit.">English Lit.</option>
+													<option value = "Mathematics">Mathematics</option>
+													<option value = "History">History</option>
+													<option value = "Sinhala">Sinhala</option>
+													<option value = "Sinhala Lit.">Sinhala Lit.</option>
+													<option value = "Geography">Geography</option>
+													<option value = "ICT">ICT</option>
+													<option value = "Combined Mathematics">Combined Mathematics</option>
+												 </select>
+                                        </div>
+                                        <div class="form-group">
+                                           <h3>Link</h3> <input name = "materialLink" value = "${materialLink}" class="form-control input-lg" rows="5" required></input>
+                                        </div>
+                                        <button type="submit" name = "submit" class="btn wow bounceInRight" data-wow-delay="0.8s">Update Details</button>
+										<br><br>
+										<button type="reset" name = "reset" class="btn wow bounceInRight" data-wow-delay="0.8s">Reset Form</button>
+                                    </form>
+									<br>
+									<form action = "materialViewLatest" method = "post">
+										<button type="submit" name = "back" class="btn wow bounceInRight" data-wow-delay="0.8s">Back</button></form>
+                                </div>	
+                            </div>
+							<!--start fo4m 2-->
                             
                         
-                            <div class="col-sm-6">
-                                <div class="contact-form">
-                                    
-                                    <form action ="paymentInsert"  method ="post"role="form"   >
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="name" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="age" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="stu" placeholder="Student number" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="grade" placeholder="grade" required>
-                                        </div>
-                                        <h2>subject</h2>
-                                        <div class="form-group">
-										<input type="radio" id="it" name="sub" value="it">
-  										<label for="html">IT</label><br>
- 										<input type="radio" id="ENGLISH" name="sub" value="ENGLISH">
-  										<label for="css">English</label><br>
-  										<input type="radio" id="SINHALA" name="sub" value="SINHALA"> 
-										<label for="css">Sinhala</label><br>
-										<input type="radio" id="MATH" name="sub" value="MATH"> 
-										<label for="css">Maths</label><br>
-                                       </div>
-                                       
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="mobile" placeholder="MOBILE number" pattern="[0-9]{10}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control input-lg" name ="email" placeholder="email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control input-lg" rows="5" name ="masseg" placeholder="Message" required></textarea>
-                                        </div>
-                                         <div class="form-group">
-                                             
-                                             <input type="file" id="img" name="img"  class="form-control input-lg" placeholder="image" required>
-                                        
-
-                                        </div>
-
-                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">SUBMIT</button>
-                                    </form>
-                                   
-                                </div>  
-                            </div>
+                   
                                                                                 
                         </div> <!-- /.row -->
-
                     </div> <!-- /.container -->
                 </div>
             </section>
-            <!-- End payment section -->
-    
-      
+            <!-- End contact section -->
+                
+                
 
                 
             <!-- Begin footer -->
@@ -207,7 +243,7 @@
 
 		<!-- Theme JS -->
 		<script src="js/theme.js"></script>
-
+	</c:forEach>
     </body> 
         
             

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!doctype html>
-
-<html lang="en-US">
+<!DOCTYPE html>
+<html>
 	<head>
 
 		<meta charset="utf-8">
@@ -33,7 +32,7 @@
 
 		<!-- Skin CSS -->
 		<!-- <link rel="stylesheet" href="css/skin/cool-gray.css">-->
-        <link rel="stylesheet" href="css/skin/ice-blue.css">
+         <link rel="stylesheet" href="css/skin/ice-blue.css">
         <!-- <link rel="stylesheet" href="css/skin/summer-orange.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/fresh-lime.css"> -->
         <!-- <link rel="stylesheet" href="css/skin/night-purple.css"> -->
@@ -75,8 +74,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
-                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
+                            <li><a class="page-scroll" href="dashboardS.html">Student Dashboard</a></li>
+                            <li><a class="page-scroll" href="index.html">Log Out</a></li>
         
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -87,9 +86,7 @@
             </header>
             <!-- ========= END HEADER =========-->
             
-
-            <!-- Begin payment section -->
-            <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/pay.png);">
+    <section id="payment-section" class="page text-white parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/slider-bg.jpg);">
             <div class="cover"></div>
             
                  <!-- Begin page header-->
@@ -97,8 +94,9 @@
                     <div class="container">
                         <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
                             <br><br>
-                            <h2>PAYMENT</h2>
+                            <h2>Create Student Account</h2>
                             <div class="devider"></div>
+                            <p class="subtitle"></p>
                         </div>
                     </div>
                 </div>
@@ -111,53 +109,69 @@
                             
                         
                             <div class="col-sm-6">
-                                <div class="contact-form">
-                                    
-                                    <form action ="paymentInsert"  method ="post"role="form"   >
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="name" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="age" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="stu" placeholder="Student number" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="grade" placeholder="grade" required>
-                                        </div>
-                                        <h2>subject</h2>
-                                        <div class="form-group">
-										<input type="radio" id="it" name="sub" value="it">
-  										<label for="html">IT</label><br>
- 										<input type="radio" id="ENGLISH" name="sub" value="ENGLISH">
-  										<label for="css">English</label><br>
-  										<input type="radio" id="SINHALA" name="sub" value="SINHALA"> 
-										<label for="css">Sinhala</label><br>
-										<input type="radio" id="MATH" name="sub" value="MATH"> 
-										<label for="css">Maths</label><br>
-                                       </div>
-                                       
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-lg" name ="mobile" placeholder="MOBILE number" pattern="[0-9]{10}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control input-lg" name ="email" placeholder="email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control input-lg" rows="5" name ="masseg" placeholder="Message" required></textarea>
-                                        </div>
-                                         <div class="form-group">
-                                             
-                                             <input type="file" id="img" name="img"  class="form-control input-lg" placeholder="image" required>
-                                        
-
-                                        </div>
-
-                                        <button type="submit" class="btn wow bounceInRight" data-wow-delay="0.8s">SUBMIT</button>
-                                    </form>
+                                <div class="contact-form"> 
+                                
                                    
-                                </div>  
+	<form action = "insert" method = "post"  role="form">
+	
+		<h1 class="center">STUDENT REGISTRATION FORM</h1>
+	
+		Name :
+		<input type = "text"class="form-control input-lg"  name = "name" pattern="[a-zA-Z'-'\s]*" required><br><br>
+		
+		Date of Birth :
+		<input type = "date" class="form-control input-lg"  name = "boy" required><br><br>
+		
+		Gender:<br/>
+		Male &nbsp;<input type="radio"   name = "gender" value="Male" > <br>
+		Female&nbsp;<input type="radio"  name = "gender"value="Female" > <br><br>
+		
+		Age :
+		<input type = "text" class="form-control input-lg"  name = "age" required><br><br>
+		
+		Grade :
+		<input type = "text" class="form-control input-lg"  name = "grade" required><br><br>
+		
+		Email :
+		<input type = "text" class="form-control input-lg"  name = "email" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required><br><br>
+		
+		Address :
+		<input type = "text" class="form-control input-lg"  name = "address" required><br><br>
+		
+		Contact Number :
+		<input type = "text" class="form-control input-lg"  name = "contact" pattern="[07][0-9]{9}" required><br><br>
+		
+		
+		<h2>Guardian Details</h2>
+		
+		Guardian type :
+		<input type = "text" class="form-control input-lg"  name = "gtype" pattern="[a-zA-Z'-'\s]*" required><br><br>                       
+		
+		Name :
+		<input type = "text" class="form-control input-lg"  name = "gname" pattern="[a-zA-Z'-'\s]*" required><br><br>
+		
+		Email :
+		<input type = "text" class="form-control input-lg"  class="form-control input-lg"  name = "gemail" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required><br><br>
+		
+		Address :
+		<input type = "text" class="form-control input-lg"  name = "gaddress" required><br><br>
+		
+		Contact Number :
+		<input type = "text" class="form-control input-lg"  name = "gcontact" pattern="[07][0-9]{9}" required><br><br>
+		
+		Occupation :
+		<input type = "text" class="form-control input-lg"  name = "occupation" pattern="[a-zA-Z'-'\s]*" required><br><br>
+		
+		User Name :
+		<input type = "text" class="form-control input-lg"  name = "username" pattern="[a-zA-Z'-'\s]*" required><br><br>
+		
+		Password :
+		<input type = "password" class="form-control input-lg"  name = "password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
+		
+		<input type = "submit" name = "submit" value = "SUBMIT" class="btn wow bounceInRight" data-wow-delay="0.8s">
+		
+	</form>
+ </div>  
                             </div>
                                                                                 
                         </div> <!-- /.row -->
@@ -165,10 +179,7 @@
                     </div> <!-- /.container -->
                 </div>
             </section>
-            <!-- End payment section -->
-    
-      
-
+            <!-- End payment section
                 
             <!-- Begin footer -->
             <footer class="text-off-white">
