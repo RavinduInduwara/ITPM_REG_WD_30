@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Payment</display-name>
+  <welcome-file-list>
+    <welcome-file>paymentSearch.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <servlet>
+  	<servlet-name>paymentInsert</servlet-name>
+  	<servlet-class>com.payment.PaymentInsertServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentInsert</servlet-name>
+  		<url-pattern>/paymentInsert</url-pattern>
+  
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>paymentSearch</servlet-name>
+  	<servlet-class>com.payment.PaymentSearchServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentSearch</servlet-name>
+  		<url-pattern>/paymentSearch</url-pattern>
+  
+  </servlet-mapping>
+  
+       <servlet>
+  	<servlet-name>paymentDelete</servlet-name>
+  	<servlet-class>com.payment.PaymentDeleteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentDelete</servlet-name>
+  		<url-pattern>/paymentDelete</url-pattern>
+  
+  </servlet-mapping>
+  
+  
+     <servlet>
+  	<servlet-name>paymentUpdate</servlet-name>
+  	<servlet-class>com.payment.PaymentUpdateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>paymentUpdate</servlet-name>
+  		<url-pattern>/paymentUpdate</url-pattern>
+  
+  </servlet-mapping>
+ 
+  
+</web-app>
