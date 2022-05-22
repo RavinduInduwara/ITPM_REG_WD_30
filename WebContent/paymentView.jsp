@@ -79,8 +79,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="page-scroll" href="home.jsp">Home</a></li>
-                     		 <li><a class="page-scroll" href="#payment-section">payment</a></li>
+                           <li><a class="page-scroll" href="paymentSearch.jsp">Payment Home</a></li>
+                           <li><a class="page-scroll" href="index.html">Log Out</a></li>
                            
                         </ul>
                     </div><!-- /.navbar-collapse -->
